@@ -1,0 +1,42 @@
+<!-- {{gyumolcsok|json}} -->
+{{ujGyumi|json}}
+<div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        <!-- {{oszlop|json}} -->
+        {{oszlop.text}}
+        <!-- {{oszlop['text']}} -->
+    </div>
+    <div class="col">Műveletek</div>
+</div>
+
+
+
+<div class="row my-2">
+
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        <input [(ngModel)]="ujGyumi[oszlop.key]" [type]="oszlop.type" class="form-control">
+      
+    </div>
+    
+    <div class="col">
+        <button (click)="hozzaad()" type="button" class="btn btn-warning">Hozzáad</button>
+     
+    </div>
+</div>
+
+
+
+
+<div *ngFor="let gyumolcs of gyumolcsok" class="row my-2">
+
+    <div *ngFor="let oszlop of oszlopok" class="col">
+
+        <input [(ngModel)]="gyumolcs[oszlop.key]" [type]="oszlop.type"  class="form-control">
+      
+    </div>
+
+    <div class="col">
+        <button type="button" class="btn btn-warning">Módosít</button>
+        <button (click)="delete(gyumolcs)" type="button" class="ms-2 btn btn-danger">Törlés</button>
+    </div>
+</div>
